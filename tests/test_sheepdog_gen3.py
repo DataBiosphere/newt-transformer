@@ -18,5 +18,5 @@ class TestSheepdogGen3Transforming(unittest.TestCase):
         cls.test_file = f'{cls.project_path}/tests/test_data/topmed-public.json'
 
     def test_sheepdog_gen3_transorming(self):
-        args = [self.test_file, 'foo']
+        args = [self.test_file]
         main(args)
