@@ -1,22 +1,49 @@
-# standard library
-import unittest
+import datetime
 import os
+import unittest
+import uuid
 
-# dependencies
-import git
+from pathlib import Path
 
-# local
-from transform import main
+from transform import main as transformer_main
+
+
+def message(message: str):
+    print("{}: {}".format(datetime.datetime.now(), message))
 
 
 class TestSheepdogGen3Transforming(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.git_repo = git.Repo(os.getcwd(), search_parent_directories=True)
-        cls.project_path = cls.git_repo.git.rev_parse('--show-toplevel')
+        cls.project_path = Path(__file__).parents[1]
         cls.test_file = f'{cls.project_path}/tests/test_data/topmed-public.json'
+        cls.out_file = f'{cls.project_path}/tests/{str(uuid.uuid4())}.tmp.json'
 
-    def test_sheepdog_gen3_transorming(self):
-        args = [self.test_file]
-        main(args)
+    def setUp(self):
+        message('Make sure the output file doesn\'t exist yet')
+        with self.assertRaises(FileNotFoundError):
+            with open(self.out_file, 'r'):
+                pass
+
+    def _validate_output(self):
+        message('Make sure that the output file was actually created')
+        with self.assertRaises(FileExistsError):
+            with open(self.out_file, 'x'):
+                pass
+
+        # TODO: maybe make a json schema and test our output against it
+
+    def test_sheepdog_gen3_transforming(self):
+        message('Run the transformer on sheepdog\'s output')
+        argv = [self.test_file, '--output-json', self.out_file]
+        transformer_main(argv)
+
+        self._validate_output()
+
+    def tearDown(self):
+        message('Clean up the output file if there is one')
+        try:
+            os.remove(self.out_file)
+        except FileNotFoundError:
+            pass

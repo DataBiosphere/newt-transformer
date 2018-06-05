@@ -2,13 +2,15 @@
 import json
 import logging
 import sys
+import typing
 import uuid
 from collections import namedtuple
-from typing import Generator
 
 import argparse
 
 
+"""A metadata link is all the information necessary to get metadata
+for a particular field from the field that links to it."""
 MetadataLink = namedtuple('MetadataLink', ['source_field_name', 'linked_field_name', 'link_name'])
 
 
@@ -17,7 +19,6 @@ class Transformer:
     @staticmethod
     def _build_data_objects_dict(data_objects: list):
         return {entry['id']: entry for entry in data_objects}
-
 
     @staticmethod
     def _build_metadata_dict(input_metadata):
@@ -30,25 +31,31 @@ class Transformer:
             input_metadata[field] = build_metadata_field(input_metadata, field)
         return input_metadata
 
-    def __init__(self, input_dict: dict):
+    def __init__(self, input_dict: dict) -> None:
         self._metadata = self._build_metadata_dict(input_dict['metadata'])
         self._data_objects_dict = self._build_data_objects_dict(input_dict['data_objects'])
-        self._metadata_links = [MetadataLink('aligned_reads_index', 'submitted_aligned_reads', 'submitted_aligned_reads_files.id'),
+        self._metadata_links = [MetadataLink('aligned_reads_index', 'submitted_aligned_reads',
+                                             'submitted_aligned_reads_files.id'),
                                 MetadataLink('submitted_aligned_reads', 'read_group', 'read_groups.id#1'),
                                 MetadataLink('read_group', 'aliquot', 'aliquots.id'),
                                 MetadataLink('aliquot', 'sample', 'samples.id#1'),
+                                MetadataLink('sample', 'case', 'cases.id'),
                                 ]
 
-    @staticmethod
-    def _get_link(metadata_field: dict, link_key: str) -> dict:
-        return metadata_field['link_fields'][link_key]
-
-    def _add_file_to_bundle(self, bundle, link_source):
-        file_key = bundle['metadata'][link_source]['object_id']
+    def _add_file_to_bundle(self, bundle: dict, link_source: str):
+        source_dict = bundle['metadata'][link_source]
+        file_key = source_dict['object_id']
         file_dict = self._data_objects_dict[file_key]
+
+        # The format of the bundle is a little broken. Here we fix it:
+        # put filename in file_dict since it's only stored in the metadata for some reason...
+        file_name = source_dict['file_name']
+        file_dict['name'] = file_name
+        # This is ugly and sketchy, but should do the job for now
+        file_dict['updated_datetime'] = file_dict['created'] + 'Z'
         bundle['manifest'].append(file_dict)
 
-    def _add_metadata_field(self, metadata_dict, source_field_name: str, linked_field_name: str, link_name :str):
+    def _add_metadata_field(self, metadata_dict, source_field_name: str, linked_field_name: str, link_name: str):
         linked_field_key = metadata_dict[source_field_name]['link_fields'][link_name]
         linked_field_dict = self._metadata[linked_field_name][linked_field_key]
         metadata_dict[linked_field_name] = linked_field_dict
@@ -63,11 +70,11 @@ class Transformer:
 
         bundle['bundle_did'] = str(uuid.uuid4())
 
-    def transform(self) -> Generator[dict, None, None]:
+    def transform(self) -> typing.Iterator[dict]:
         """
         Builds bundles from the initialized metadata
 
-        :return: bundle generator
+        :return: bundle iterator
         """
         def index_to_bundle(aligned_read_index):
             # prepackage the bundle with the tree root that is used to fill in the rest of the fields
@@ -85,7 +92,7 @@ def open_json_file(json_path):
         return json.load(fp)
 
 
-def write_output(bundles: Generator[dict, None, None], out_file):
+def write_output(bundles: typing.Iterator[dict], out_file):
     with open(out_file, 'w') as fp:
         json.dump(list(bundles), fp)
 
@@ -101,8 +108,8 @@ def main(argv):
 
     json_dict = open_json_file(options.input_json)
     transformer = Transformer(json_dict)
-    bundle_list = list(transformer.transform())
-    write_output(bundle_list, options.output_json)
+    bundle_iterator = transformer.transform()
+    write_output(bundle_iterator, options.output_json)
 
 
 if __name__ == '__main__':
