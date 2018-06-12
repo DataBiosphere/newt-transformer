@@ -1,6 +1,6 @@
 
 include common.mk
-MODULES=transform.py tests
+MODULES=transform tests main.py
 
 all: test
 

@@ -4,16 +4,17 @@ import os
 import unittest
 import uuid
 
+import jsonschema
 from pathlib import Path
 
-from transform import main as transformer_main
+from main import main
 
 
 def message(message: str):
     print("{}: {}".format(datetime.datetime.now(), message))
 
 
-class TestSheepdogGen3Transforming(unittest.TestCase):
+class AbstractTransformerTest:
 
     @classmethod
     def setUpClass(cls):
@@ -43,12 +44,8 @@ class TestSheepdogGen3Transforming(unittest.TestCase):
             bundle['bundle_did'] = valid_bundle_did
         self.assertTrue(valid_output in test_output)
 
-    def test_sheepdog_gen3_transforming(self):
-        message('Run the transformer on sheepdog\'s output')
-        argv = [str(self.test_file), '--output-json', str(self.out_file)]
-        transformer_main(argv)
-
-        self._validate_output()
+        # TODO: should probably be moved before the file changing validation
+        # jsonschema.validate(test_output)
 
     def tearDown(self):
         message('Clean up the output file if there is one')
@@ -56,3 +53,14 @@ class TestSheepdogGen3Transforming(unittest.TestCase):
             os.remove(self.out_file)
         except FileNotFoundError:
             pass
+
+
+class TestSheepdogGen3Transforming(AbstractTransformerTest, unittest.TestCase):
+
+    def test_sheepdog_gen3_transforming(self):
+        message('Run the transformer on sheepdog\'s output')
+        argv = ['gen3', str(self.test_file), '--output-json', str(self.out_file)]
+        message(f'Passing args: {" ".join(argv)}')
+        main(argv)
+
+        self._validate_output()
