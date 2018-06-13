@@ -19,7 +19,7 @@ __pycache__/
 atlassian-ide-plugin.xml
 
 # Virtualenv
-.venv
+venv
 
 # OS X metadata files
 .DS_Store
