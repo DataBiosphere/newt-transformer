@@ -6,7 +6,8 @@ import sys
 import argparse
 import typing
 
-from transform.gen3 import Gen3Transformer
+from transform.gen3old import Gen3Transformer
+from transform.gen3standard import Gen3Transformer as Gen3TransformerStandard
 
 
 def open_json_file(json_path):
@@ -36,11 +37,19 @@ def main(argv):
     transform_source = parser.add_subparsers(dest='transform_source', help='Metadata source format')
 
     add_parser_to_subparser(transform_source, 'gen3', 'Gen3 metadata as formatted by sheepdog exporter')
+    add_parser_to_subparser(transform_source, 'new', 'Gen3 metadata as formatted by sheepdog exporter')
 
     options = parser.parse_args(argv)
 
     json_dict = open_json_file(options.input_json)
-    transformer = Gen3Transformer(json_dict)
+
+    if options.transform_source == 'gen3':
+        transformer = Gen3Transformer(json_dict)
+    elif options.transform_source == 'new':
+        transformer = Gen3TransformerStandard(json_dict)
+    else:
+        raise ValueError(f'Invalid metadata source format {options.transform_source}')
+
     bundle_iterator = transformer.transform()
     write_output(bundle_iterator, options.output_json)
 
