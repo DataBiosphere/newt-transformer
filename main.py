@@ -7,7 +7,7 @@ import argparse
 import typing
 
 from transform.gen3old import Gen3Transformer
-from transform.gen3standard import Gen3Transformer as Gen3TransformerStandard
+from transform.gen3standard import Gen3Transformer as Gen3TransformerStandard, Bundle
 
 
 def open_json_file(json_path):
@@ -16,7 +16,7 @@ def open_json_file(json_path):
         return json.load(fp)
 
 
-def write_output(bundles: typing.Iterator[dict], out_file):
+def write_output(bundles: typing.Iterator[Bundle], out_file):
     with open(out_file, 'w') as fp:
         json.dump(list(bundles), fp)
 

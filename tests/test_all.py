@@ -78,10 +78,13 @@ class TestSheepdogGen3TransformingStandard(AbstractTransformerTest, unittest.Tes
         super()._validate_output()
         # check the output against the agreed upon schema!
         output_json = self._get_output_json()
-        jsonschema.validate(output_json, output_schema)
+        for bundle in output_json:
+            jsonschema.validate(bundle, output_schema)
 
     def test_sheepdog_gen3_transforming(self):
         message('Run the transformer on sheepdog\'s output')
         argv = ['new', str(self.test_file), '--output-json', str(self.out_file)]
         message(f'Passing args: {" ".join(argv)}')
         main(argv)
+
+        self._validate_output()

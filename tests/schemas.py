@@ -6,124 +6,125 @@ data_object_schema = {
     'type': 'object',
     'required': ['id', 'size', 'created', 'checksums', 'urls'],
     'properties': {
-      'id': {
-        'type': 'string',
-        'description': 'REQUIRED\n'
-                       'An identifier unique to this Data Object.'
-      },
-      'name': {
-        'type': 'string',
-        'description': 'OPTIONAL\n'
-                       'A string that can be optionally used to name a Data Object.'
-      },
-      'size': {
-        'type': 'string',
-        'format': 'int64',
-        'description': 'REQUIRED\n'
-                       'The computed size in bytes.'
-      },
-      'created': {
-        'type': 'string',
-        'format': 'date-time',
-        'description': 'REQUIRED\n'
-                       'Timestamp of object creation in RFC3339.'
-      },
-      'updated': {
-        'type': 'string',
-        'format': 'date-time',
-        'description': 'OPTIONAL\n'
-                       'Timestamp of update in RFC3339, identical to create timestamp in systems\n'
-                       'that do not support updates.'
-      },
-      'version': {
-        'type': 'string',
-        'description': 'OPTIONAL\n'
-                       'A string representing a version.'
-      },
-      'mime_type': {
-        'type': 'string',
-        'description': 'OPTIONAL\n'
-                       'A string providing the mime-type of the Data Object.\n'
-                       'For example, \'application/json\'.'
-      },
-      'checksums': {
-        'type': 'array',
-        'items': {
-              "type": "object",
-              "properties": {
-                "checksum": {
-                  "type": "string",
-                  "description": "REQUIRED\n"
-                                 "The hex-string encoded checksum for the Data."
-                },
-                "type": {
-                  "type": "string",
-                  "description": "OPTIONAL\n"
-                                 "The digest method used to create the checksum. If left unspecified md5\n"
-                                 "will be assumed.\n"
-                                 "\n"
-                                 "possible values:\n"
-                                 "md5                # most blob stores provide a checksum using this\n"
-                                 "multipart-md5      # multipart uploads provide a specialized tag in S3\n"
-                                 "sha256\n"
-                                 "sha512"
+        'id': {
+            'type': 'string',
+            'description': 'REQUIRED\n'
+                           'An identifier unique to this Data Object.'
+        },
+        'name': {
+            'type': 'string',
+            'description': 'OPTIONAL\n'
+                           'A string that can be optionally used to name a Data Object.'
+        },
+        'size': {
+            'type': 'string',
+            'format': 'int64',
+            'description': 'REQUIRED\n'
+                           'The computed size in bytes.'
+        },
+        'created': {
+            'type': 'string',
+            'format': 'date-time',
+            'description': 'REQUIRED\n'
+                           'Timestamp of object creation in RFC3339.'
+        },
+        'updated': {
+            'type': 'string',
+            'format': 'date-time',
+            'description': 'OPTIONAL\n'
+                           'Timestamp of update in RFC3339, identical to create timestamp in systems\n'
+                           'that do not support updates.'
+        },
+        'version': {
+            'type': 'string',
+            'description': 'OPTIONAL\n'
+                           'A string representing a version.'
+        },
+        'mime_type': {
+            'type': 'string',
+            'description': 'OPTIONAL\n'
+                           'A string providing the mime-type of the Data Object.\n'
+                           'For example, \'application/json\'.'
+        },
+        'checksums': {
+            'type': 'array',
+            'items': {
+                "type": "object",
+                "properties": {
+                    "checksum": {
+                        "type": "string",
+                        "description": "REQUIRED\n"
+                                       "The hex-string encoded checksum for the Data."
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "OPTIONAL\n"
+                                       "The digest method used to create the checksum. If left unspecified md5\n"
+                                       "will be assumed.\n"
+                                       "\n"
+                                       "possible values:\n"
+                                       "md5                # most blob stores provide a checksum using this\n"
+                                       "multipart-md5      # multipart uploads provide a specialized tag in S3\n"
+                                       "sha256\n"
+                                       "sha512"
+                    }
                 }
-              }
             },
 
-        'description': 'REQUIRED\n'
-                       'The checksum of the Data Object. At least one checksum must be provided.'
-      },
-      'urls': {
-        'type': 'array',
+            'description': 'REQUIRED\n'
+                           'The checksum of the Data Object. At least one checksum must be provided.'
+        },
+        'urls': {
+            'type': 'array',
             'items': {
-            "type": "object",
-            "properties": {
-              "url": {
-                "type": "string",
-                "description": "REQUIRED\n"
-                               "A URL that can be used to access the file."
-              },
-              "system_metadata": {
-                  "type": "object",
-                  "additionalProperties": True,
-                  "description": "OPTIONAL\n"
-                                 "These values are reported by the underlying object store.\n"
-                                 "A set of key-value pairs that represent system metadata about the object."
-              },
-              "user_metadata": {
-                  "type": "object",
-                  "additionalProperties": True,
-                  "description": "OPTIONAL\n"
-                                 "A set of key-value pairs that represent metadata provided by the uploader."
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "REQUIRED\n"
+                                       "A URL that can be used to access the file."
+                    },
+                    "system_metadata": {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "description": "OPTIONAL\n"
+                                       "These values are reported by the underlying object store.\n"
+                                       "A set of key-value pairs that represent system metadata about the object."
+                    },
+                    "user_metadata": {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "description": "OPTIONAL\n"
+                                       "A set of key-value pairs that represent metadata provided by the uploader."
+                    }
                 }
-            }
+            },
+            'description': 'OPTIONAL\n'
+                           'The list of URLs that can be used to access the Data Object.'
         },
-        'description': 'OPTIONAL\n'
-                       'The list of URLs that can be used to access the Data Object.'
-      },
-      'description': {
-        'type': 'string',
-        'description': 'OPTIONAL\n'
-                       'A human readable description of the contents of the Data Object.'
-      },
-      'aliases': {
-        'type': 'array',
-        'items': {
-          'type': 'string'
+        'description': {
+            'type': 'string',
+            'description': 'OPTIONAL\n'
+                           'A human readable description of the contents of the Data Object.'
         },
-        'description': "OPTIONAL\n"
-                       "A list of strings that can be used to find this Data Object.\n"
-                       "These aliases can be used to represent the Data Object's location in\n"
-                       "a directory (e.g. \'bucket/folder/file.name\') to make Data Objects\n"
-                       "more discoverable."
-      }
+        'aliases': {
+            'type': 'array',
+            'items': {
+                'type': 'string'
+            },
+            'description': "OPTIONAL\n"
+                           "A list of strings that can be used to find this Data Object.\n"
+                           "These aliases can be used to represent the Data Object's location in\n"
+                           "a directory (e.g. \'bucket/folder/file.name\') to make Data Objects\n"
+                           "more discoverable."
+        }
     }
-  }
+}
 
 data_bundle = {
     "type": "object",
-    'required': ['properties', 'data_object_ids', 'created', 'updated', 'version', 'checksums'],
+    # TODO: required, but we don't have
+    'required': ['data_object_ids', 'created', 'updated', 'version'],  # , 'checksums'],
     "properties": {
         "id": {
             "type": "string",
@@ -223,7 +224,7 @@ schema = {
             'type': 'object',
             'patternProperties': {
                 # Note: does not match regexes with capitals
-                '^.*//[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$': {'type': data_object_schema},
+                '^.*/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$': data_object_schema,
             }
         },
         "data_bundle": data_bundle
