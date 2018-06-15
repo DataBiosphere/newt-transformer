@@ -123,7 +123,7 @@ data_object_schema = {
 
 data_bundle = {
     "type": "object",
-    # TODO: required, but we don't have
+    # TODO: required, but we don't have checksums for bundles
     'required': ['data_object_ids', 'created', 'updated', 'version'],  # , 'checksums'],
     "properties": {
         "id": {
