@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="81cm" height="30cm" viewBox="24 215 1607 594" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs/>
+  <g id="Background">
+    <g>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="967" y="258" width="247" height="256" rx="0" ry="0"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1090.5" y="389.9">
+        <tspan x="1090.5" y="389.9"></tspan>
+      </text>
+    </g>
+    <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="25" y="291" width="260" height="309" rx="0" ry="0"/>
+    <g>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="388" y="216" width="196" height="280" rx="0" ry="0"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="486" y="359.9">
+        <tspan x="486" y="359.9">Main()</tspan>
+      </text>
+    </g>
+    <g>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="658" y="298" width="259" height="100" rx="0" ry="0"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="787.5" y="343.9">
+        <tspan x="787.5" y="343.9">open_json_file()</tspan>
+        <tspan x="787.5" y="359.9">#does light parsing of json</tspan>
+      </text>
+    </g>
+    <g>
+      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="584,286 648.389,296.442 "/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="655.793,297.642 645.121,300.977 648.389,296.442 646.722,291.106 "/>
+    </g>
+    <g>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="922" y="576" width="339" height="163" rx="0" ry="0"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1091.5" y="661.4">
+        <tspan x="1091.5" y="661.4">AbstractTransformer class</tspan>
+      </text>
+    </g>
+    <g>
+      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="1011.2,335 1184,335 1184,379 992,379 992,339.4 "/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1092.8" y="362.1">
+        <tspan x="1092.8" y="362.1">__init__()</tspan>
+      </text>
+    </g>
+    <g>
+      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="1017.4,430.3 1190.2,430.3 1190.2,475.3 998.2,475.3 998.2,434.8 "/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1099" y="457.925">
+        <tspan x="1099" y="457.925">transform()</tspan>
+      </text>
+    </g>
+    <g>
+      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="1091.5,556.76 1091.5,547 1090.5,547 1090.5,514 "/>
+      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="1083.5,556.76 1091.5,572.76 1099.5,556.76 "/>
+    </g>
+    <text font-size="17.5994" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1019" y="300">
+      <tspan x="1019" y="300">methods:</tspan>
+    </text>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="917" y1="348" x2="982.333" y2="355.84"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="989.78,356.734 979.255,360.507 982.333,355.84 980.447,350.578 "/>
+    </g>
+    <g>
+      <path style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" d="M 63 347 L 213,347 L 213,433.222 C 183,418.852 168,418.852 138,433.222 C 108,447.593 93,447.593 63,433.222 L 63,347z"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="138" y="386.926">
+        <tspan x="138" y="386.926">actual data .json</tspan>
+      </text>
+    </g>
+    <g>
+      <path style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" d="M 214.006,362.975 A 217.369,217.369 0 0 0 373.464,295.206"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="378.535,289.69 375.763,300.521 373.622,295.356 368.207,293.97 "/>
+    </g>
+    <g>
+      <path style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" d="M 79.6 491 L 203.4,491 C 220.493,491 234.35,502.417 234.35,516.5 C 234.35,530.583 220.493,542 203.4,542 L 79.6,542 C 62.5068,542 48.65,530.583 48.65,516.5 C 48.65,502.417 62.5068,491 79.6,491"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="141.5" y="520.5">
+        <tspan x="141.5" y="520.5">which kind of data</tspan>
+      </text>
+    </g>
+    <text font-size="17.5429" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="50" y="318">
+      <tspan x="50" y="318">User Input</tspan>
+    </text>
+    <g>
+      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="388,286 388,286 552,286 552,286 577.295,286 "/>
+      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" points="564.647,291 580.647,286 564.647,281 "/>
+    </g>
+    <g>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="435" y="607" width="305" height="76" rx="0" ry="0"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="587.5" y="648.9">
+        <tspan x="587.5" y="648.9">Gen3Transformer class</tspan>
+      </text>
+    </g>
+    <g>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="435.2" y="725.3" width="305" height="82.7" rx="0" ry="0"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="587.7" y="770.55">
+        <tspan x="587.7" y="770.55">OtherDataSourceTransformer class</tspan>
+      </text>
+    </g>
+    <g>
+      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="902.759,657.5 822.497,657.5 822.497,645 740,645 "/>
+      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="902.759,665.5 918.759,657.5 902.759,649.5 "/>
+    </g>
+    <g>
+      <polyline style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="903.764,698.25 823.1,698.25 823.1,725.3 740.2,725.3 "/>
+      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="903.764,706.25 919.764,698.25 903.764,690.25 "/>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="584" y1="426" x2="988.484" y2="452.171"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="995.969,452.656 985.667,457 988.484,452.171 986.312,447.02 "/>
+    </g>
+    <g>
+      <rect style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x="166" y="681" width="166" height="68" rx="0" ry="0"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="249" y="718.9">
+        <tspan x="249" y="718.9">decides</tspan>
+      </text>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="332.985" y1="697.632" x2="424.48" y2="678.712"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="431.824,677.193 423.044,684.114 424.48,678.712 421.019,674.322 "/>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="332.683" y1="727.761" x2="424.581" y2="741.775"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="431.995,742.906 421.356,746.341 424.581,741.775 422.863,736.455 "/>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="211.264" y1="490.887" x2="378.86" y2="429.355"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="385.901,426.771 378.237,434.911 378.86,429.355 374.79,425.523 "/>
+    </g>
+    <g>
+      <path style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" d="M 388,426 A 172.241,172.241 0 0 1 275.42,678.126"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="268.082,679.622 277.128,673.052 275.481,678.394 278.766,682.917 "/>
+    </g>
+    <g>
+      <path style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" d="M 1318 581 L 1629,581 L 1629,697.444 C 1566.8,678.037 1535.7,678.037 1473.5,697.444 C 1411.3,716.852 1380.2,716.852 1318,697.444 L 1318,581z"/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1473.5" y="633.519">
+        <tspan x="1473.5" y="633.519">pretty, transofrmed .json</tspan>
+      </text>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="1191.2" y1="445.424" x2="1422.65" y2="427.823"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="1430.13,427.254 1420.54,432.998 1422.65,427.823 1419.78,423.027 "/>
+    </g>
+    <g>
+      <polygon style="fill: #ffffff; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="1382.75,353 1576.25,353 1479.5,494 "/>
+      <text font-size="12.8" style="fill: #000000; fill-opacity: 1; stroke: none;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1479.5" y="392.25">
+        <tspan x="1479.5" y="392.25">write_output()</tspan>
+      </text>
+    </g>
+    <g>
+      <line style="fill: none; stroke-opacity: 1; stroke-width: 2; stroke: #000000" x1="1477.65" y1="493.079" x2="1475.59" y2="570.275"/>
+      <polygon style="fill: #000000; fill-opacity: 1; stroke-opacity: 1; stroke-width: 2; stroke: #000000" fill-rule="evenodd" points="1475.39,577.772 1470.66,567.643 1475.59,570.275 1480.66,567.909 "/>
+    </g>
+  </g>
+</svg>
