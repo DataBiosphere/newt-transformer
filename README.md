@@ -1,5 +1,5 @@
 # newt-transformer
-[![Build Status](https://travis-ci.org/jessebrennan/newt-transformer.svg?branch=master)](https://travis-ci.org/jessebrennan/newt-transformer)
+[![Build Status](https://travis-ci.org/DataBiosphere/newt-transformer.svg?branch=master)](https://travis-ci.org/DataBiosphere/newt-transformer)
 
 Metadata transformer to convert from gen3 to something readable by 
 cgp-dss-data-loader
