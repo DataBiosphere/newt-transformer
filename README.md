@@ -5,9 +5,18 @@ Metadata transformer to convert from gen3 to something readable by
 cgp-dss-data-loader
 
 ## Common Setup
-Run:
 
-`pip install -r requirements.txt`
+1. Clone the repo:
+
+   `git clone https://github.com/jessebrennan/newt-transformer.git`
+
+2. Go to the root directory of the cloned project:
+
+   `cd newt-transformer`
+
+3. Run:
+
+    `pip install .`
 
 ## Setup for Development
 1. Clone the repo:
@@ -18,11 +27,9 @@ Run:
 
    `cd newt-transformer`
 
-3. Make sure you are on the branch `develop`.
+3. Run (ideally in a new [virtual environment](https://docs.python.org/3/tutorial/venv.html)):
 
-4. Run (ideally in a new [virtual environment](https://docs.python.org/3/tutorial/venv.html)):
-
-   `pip install -r requirements-dev.txt`
+   `make develop`
 
 ## Running Tests
 1. make sure you followed Setup for Development
@@ -41,7 +48,7 @@ Run:
 
 3. Now we need to transform the data. From the root of the project run:
 
-   `python main.py new /path/to/topmed-public.json --output-json transformed-topmed-public.json`
+   `newt new /path/to/topmed-public.json --output-json transformed-topmed-public.json`
 
    This will generate a transformed output file called `transformed-topmed-public.json`.
 

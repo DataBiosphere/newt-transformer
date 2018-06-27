@@ -6,8 +6,8 @@ import sys
 import argparse
 import typing
 
-from transform.gen3old import Gen3Transformer
-from transform.gen3standard import Gen3Transformer as Gen3TransformerStandard, Bundle
+from newt.transform.gen3old import Gen3Transformer
+from newt.transform.gen3standard import Gen3Transformer as Gen3TransformerStandard, Bundle
 
 
 def open_json_file(json_path):
@@ -31,7 +31,14 @@ def add_parser_to_subparser(sub_parser, parse_name, parse_help):
                         default='out.json')
 
 
-def main(argv):
+def main(argv=None):
+    # If called programmatically (i.e. tests), we don't want to override logging info
+    if not argv:
+        logging.basicConfig(level=logging.INFO)
+        logger = logging.getLogger(__name__)
+        logger.setLevel(logging.INFO)
+        argv = sys.argv[1:]
+
     parser = argparse.ArgumentParser()
 
     transform_source = parser.add_subparsers(dest='transform_source', help='Metadata source format')
@@ -41,8 +48,11 @@ def main(argv):
 
     options = parser.parse_args(argv)
 
+    # This shouldn't be necessary and is either a bug with argparse, or indication of its misuse
+    if not options.transform_source:
+        parser.print_usage()
+        exit(1)
     json_dict = open_json_file(options.input_json)
-
     if options.transform_source == 'gen3':
         transformer = Gen3Transformer(json_dict)
     elif options.transform_source == 'new':
@@ -52,10 +62,3 @@ def main(argv):
 
     bundle_iterator = transformer.transform()
     write_output(bundle_iterator, options.output_json)
-
-
-if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO)
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.INFO)
-    main(sys.argv[1:])

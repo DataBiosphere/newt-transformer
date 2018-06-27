@@ -7,7 +7,7 @@ import uuid
 import jsonschema
 from pathlib import Path
 
-from main import main
+from newt.main import main
 from tests.schemas import schema as output_schema
 
 

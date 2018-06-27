@@ -1,6 +1,6 @@
 
 include common.mk
-MODULES=transform tests main.py
+MODULES=newt tests
 
 all: test
 
@@ -16,9 +16,16 @@ tests:=$(wildcard tests/test_*.py)
 #   make tests/test_gen3_input_json.py
 
 $(tests): %.py : mypy lint
-	python -m unittest $*.py
+	python -m unittest --verbose $*.py
 
 test: $(tests)
 
-.PHONY: all lint mypy test
+develop:
+	pip install -e .
+	pip install -r requirements-dev.txt
 
+undevelop:
+	python setup.py develop --uninstall
+	pip uninstall -y -r requirements-dev.txt
+
+.PHONY: all lint mypy test

@@ -2,7 +2,7 @@ import typing
 import uuid
 from collections import namedtuple
 
-from transform.abstract import AbstractTransformer
+from newt.transform.abstract import AbstractTransformer
 
 
 # Welcome to the gen3 transformer. Here is an overview of how the gen3 data is parsed and transformed.
