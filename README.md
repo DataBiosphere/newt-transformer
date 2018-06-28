@@ -6,17 +6,12 @@ cgp-dss-data-loader
 
 ## Common Setup
 
-1. Clone the repo:
-
-   `git clone https://github.com/jessebrennan/newt-transformer.git`
-
-1. Go to the root directory of the cloned project:
-
-   `cd newt-transformer`
+1. **(optional)**  We recommend using a Python 3
+   [virtual environment](https://docs.python.org/3/tutorial/venv.html).
 
 1. Run:
 
-    `pip install .`
+   `pip3 install newt-transformer`
 
 ## Setup for Development
 1. Clone the repo:
@@ -59,4 +54,4 @@ under Assets. Assuming you use this data, you will now have a file called `topme
    [the DSS data loader repo](https://github.com/DataBiosphere/cgp-dss-data-loader).
 
 ## Transformer Architecture
-<img src="diagrams/newt-architecture.svg"/>
+![see github for details](diagrams/newt-architecture.svg)
