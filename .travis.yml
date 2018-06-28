@@ -5,3 +5,12 @@ install:
 - make develop
 script:
 - make test
+before_deploy:
+- make undevelop
+deploy:
+  provider: pypi
+  on:
+    tags: true
+  user: jessebrennan
+  password:
+    secure: E4igbM4BfPIrHxP7Z/xm8o/wz1XoZjfyEflImIKi6XRqyFT3ox4pj6aOUyhkYaUUMsJUh6xgEDOPz6/xe20xS3jnmtRZXGwpLu0dFoYj1t7xWd2braFo55M0Sm4WjvhW8X8495KwRTRnOrj0WaDvMk+oMmifYeAB5n6HR4vMiXB5rSFGDmdFNNpUE45JWjQu9YWFRNDeIvNTWIeYXyBCNbVhlfQ/vWucVKgB/tETRquL6GBDSOWkoghbgKdWAuepXZ2eoPlFj6ORKvP1/hRGWqD+MnzomnOVftfiB3/IlBMXpfv7nuPuAOrJOoJ2rY//Y0o6tmzGkH1pyzIUYwHqf6lTHD2xclRvqwjQWZmDPRlWbPKuLgaSGP1PVYe3WEbDtKWYMHdD0KnJ6eAG8qv3LPXBWZzJu8az/6e6Mgu/XAuie7v65GMoBMoJFXPLXMaTyA3paFE95EHUZU47K/nIazdGBd4cuH0PmjB+ZwV3i2knj0SyCk2UjbPXiZyyNFJn59LITVAjn/ZWwk3yOCZkP0cNX9DU0h2vlGoDc7ZEHFkBQ37x9lDcUwhj7LJcuAAkZHmKEwTEm3Rfrx8tCzLCtDNgf483EwQd5CPaUwHCY868DTZmpx1aHja3yRE3dar+6tLf/J9nvjZgZW8PJhvPJQxSwrarNgYLpi+mfWgVL58=
