@@ -1,6 +1,7 @@
 import os
 
 from setuptools import setup, find_packages
+from release import read_version
 
 
 def read(fname):
@@ -34,7 +35,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Topic :: Scientific/Engineering :: Bio-Informatics',
     ],
-    version='0.1.1',
+    version='{}.{}.{}'.format(*read_version()),
     keywords=['genomics', 'metadata', 'NIHDataCommons'],
     # Use setuptools_scm to set the version number automatically from Git
 )
