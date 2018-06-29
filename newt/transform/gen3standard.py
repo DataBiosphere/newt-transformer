@@ -4,7 +4,7 @@ import typing
 import uuid
 from collections import namedtuple
 
-from transform.abstract import AbstractTransformer
+from newt.transform.abstract import AbstractTransformer
 
 
 """A metadata link is all the information necessary to get metadata

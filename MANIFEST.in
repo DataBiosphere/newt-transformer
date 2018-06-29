@@ -1,0 +1,4 @@
+include README.md VERSION release.py
+include *.txt
+recursive-include newt
+include diagrams/newt-architecture.svg
