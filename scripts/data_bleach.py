@@ -12,7 +12,19 @@ PUBLIC_FIELDS = [x.split('.') for x in [
     "read_group.sequencing_center",
     "sample.biospecimen_type",
     "sample.composition",
-    "sample.node_id"]]
+    "sample.node_id",
+    "demographic.bmi",
+    "demographic.weight",
+    "demographic.height",
+    "demographic.race",
+    "demographic.gender",
+    "demographic.ethnicity",
+    "demographic.age_range",
+    "read_group.library_strategy",
+    "aliquot.experimental_strategy",
+    "aliquot.analyte_isolation_method",
+    "sample.biospecimen_anatomic_site_detail",
+    "sample.biospecimen_anatomic_site"]]
 
 
 def error(*args, **kwargs):
