@@ -50,9 +50,27 @@ class Bundle(dict):
         :param linked_field_name: the metadata field that is linked to
         :param link_name: the actual name of the link in the source_field. Usually there is some subtle variation
         """
-        linked_field_key = self.metadata[source_field_name]['link_fields'][link_name]
-        linked_field_dict = metadata_source[linked_field_name][linked_field_key]
-        self.metadata[linked_field_name] = linked_field_dict
+        if source_field_name in self.metadata.keys():
+            # Get the id of the specific item we want to add
+            linked_field_key = self.metadata[source_field_name]['link_fields'][link_name]
+            # Get the dictionary that goes with that specific item
+            linked_field_dict = metadata_source[linked_field_name][linked_field_key]
+            # Add it to this bundle's metadata
+            self.metadata[linked_field_name] = linked_field_dict
+
+        else:
+            # When the item is a child of an existing field
+            # Get the ID from the item we already have
+            existing_id = self.metadata[linked_field_name]['node_id']
+            # Go to the list of entries we want to look in
+            entries = metadata_source[source_field_name]
+            # Look for the entry that links to our item
+            for key in entries:
+                entry = entries[key]
+                if entry['link_fields'][link_name] == existing_id:
+                    linked_field_dict = entry
+            # Add it to this bundle's metadata
+            self.metadata[source_field_name] = linked_field_dict
 
     def add_file(self, objects_source: dict, link_source: str):
         """
@@ -105,6 +123,8 @@ class Gen3Transformer(AbstractTransformer):
                                 MetadataLink('read_group', 'aliquot', 'aliquots.id'),
                                 MetadataLink('aliquot', 'sample', 'samples.id#1'),
                                 MetadataLink('sample', 'case', 'cases.id'),
+                                MetadataLink('case', 'study', 'studies.id#1'),
+                                MetadataLink('demographic', 'case', 'cases.id')
                                 ]
 
     def _build_bundle(self, metadata_dict: dict):
