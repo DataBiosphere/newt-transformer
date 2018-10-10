@@ -57,6 +57,7 @@ class Bundle(dict):
             linked_field_dict = metadata_source[linked_field_name][linked_field_key]
             # Add it to this bundle's metadata
             self.metadata[linked_field_name] = linked_field_dict
+
         else:
             # When the item is a child of an existing field
             # Get the ID from the item we already have
