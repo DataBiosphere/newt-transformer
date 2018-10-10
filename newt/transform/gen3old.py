@@ -34,13 +34,17 @@ class Gen3Transformer(AbstractTransformer):
 
     @staticmethod
     def _build_metadata_dict(input_metadata):
-        def build_metadata_field(metadata, field_name: str):
+        def build_metadata_field(metadata, field_name: str, key: str):
             """
             Builds dict from metadata where key is node_id, value is the corresponding metadata
             """
-            return {entry['node_id']: entry for entry in metadata[field_name]}
+            return {entry[key]: entry for entry in metadata[field_name]}
         for field in input_metadata:
-            input_metadata[field] = build_metadata_field(input_metadata, field)
+            if field == 'project' or field == 'program':
+                key = 'id'
+            else:
+                key = 'node_id'
+            input_metadata[field] = build_metadata_field(input_metadata, field, key)
         return input_metadata
 
     def __init__(self, input_dict: dict) -> None:

@@ -38,7 +38,8 @@ class Bundle(dict):
         self['data_bundle'] = self.data_bundle
         self['data_objects'] = self.data_objects
 
-    def add_metadata_field(self, metadata_source: dict,
+    def add_metadata_field(self,
+                           metadata_source: dict,
                            source_field_name: str,
                            linked_field_name: str,
                            link_name: str):
