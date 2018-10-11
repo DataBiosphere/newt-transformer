@@ -59,8 +59,6 @@ def recursive_clear(d, context=None):
 def sanitize_bundle(bundle):
     metadata = bundle['data_bundle']['user_metadata']
     recursive_clear(metadata)
-    metadata['program'] = 'gtex'
-    metadata['project'] = 'GTEx-v7'
 
 
 def main(argv):
