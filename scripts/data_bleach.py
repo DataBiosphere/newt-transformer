@@ -27,7 +27,8 @@ PUBLIC_FIELDS = [x.split('.') for x in [
     "sample.biospecimen_anatomic_site_detail",
     "sample.biospecimen_anatomic_site",
     "project.code",
-    "project.name"]]
+    "project.name",
+    "study.submitter_id"]]
 
 
 def error(*args, **kwargs):
