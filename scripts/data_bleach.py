@@ -46,23 +46,6 @@ def is_protected_field(key, context):
     return not any([context + [key] == field for field in PUBLIC_FIELDS])
 
 
-def get_sanitized_value(value):
-    result = None
-    if value is None:
-        result = None
-    elif isinstance(value, str):
-        result = "--------" if len(value) > 0 else ""
-    elif isinstance(value, bool):
-        result = False
-    elif isinstance(value, float):
-        result = 0.0
-    elif isinstance(value, int):
-        result = 0
-    elif isinstance(value, list):
-        result = []
-    return result
-
-
 def recursive_clear(d, context=None):
     """
     clear the values of a dictionary unless the value is another dictionary
@@ -77,7 +60,7 @@ def recursive_clear(d, context=None):
             recursive_clear(val, context=context + [key])
         else:
             if is_protected_field(key, context):
-                d[key] = get_sanitized_value(d[key])
+                d[key] = None
 
 
 def sanitize_bundle(bundle):
